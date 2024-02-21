@@ -1,19 +1,12 @@
-```
 config for vscode
 
-```
 
 ```
 keyboardbinding.jso
-```
-
 This is keybinding
-
-```
 settings.json
-```
-
 settting for vscode
+```
 
 `Video`
 <video src="
