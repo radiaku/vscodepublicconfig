@@ -13,7 +13,3 @@ settting for vscode
 `Images plugins`
 
 ![plugin screenshot](https://github.com/radiaku/vscodepublicconfig/blob/main/ss/plugins.png?raw=true)
-
-
-
-
