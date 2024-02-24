@@ -1,5 +1,15 @@
 [
   {
+    "key": "ctrl+]",
+    "command": "workbench.action.nextSideBarView"
+    // "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.previousSideBarView"
+    // "when": "sideBarFocus"
+  },
+  {
     "key": "ctrl+p", // whatever you want here
     "command": "selectPrevCodeAction", // for v1.71
     "when": "codeActionMenuVisible"
@@ -53,6 +63,10 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "key": "ctrl+e"
   },
+  // {
+  //   "command": "workbench.action.toggleSidebarVisibility",
+  //   "key": "space+e+e"
+  // },
   {
     "command": "workbench.files.action.focusFilesExplorer",
     "key": "ctrl+e",
