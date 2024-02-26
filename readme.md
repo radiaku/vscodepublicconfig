@@ -25,7 +25,9 @@
 > ## Config for my terminal powershell
 >
 > Filename = `Microsoft.PowerShell.profile.ps1`
+>
 > add to `C:\Users\yourUsername\Documents\PowerShell`
+>
 > you need install _ohmyposh_ (https://ohmyposh.dev/)
 
 > [!Note]
@@ -35,8 +37,11 @@
 > Filename = `komorebi.json`
 >
 > **_ this for config komorebi ( you need install komorebi first https://github.com/LGUG2Z/komorebi) _**
+>
 > add this to `C:\Users\yourUsername\`
 >
 > Filename = `whkdrc`
 >
-> **_this config for whk for komorebi_**, add this to `C:\Users\yourUsername\.config`
+> **_this config for whk for komorebi_**,
+>
+> add this to `C:\Users\yourUsername\.config`
