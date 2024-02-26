@@ -2,10 +2,10 @@
 >
 > ## Config for My vscode
 >
-> Filename = keyboardbinding.json
+> Filename = `keyboardbinding.json`
 > This is keybinding
 >
-> Filename = settings.json
+> Filename = `settings.json`
 > settting for vscode
 
 > [!WARNING]
@@ -24,16 +24,19 @@
 >
 > ## Config for my terminal powershell
 >
-> Filename = Microsoft.PowerShell_profile.ps1
+> Filename = `Microsoft.PowerShell.profile.ps1`
+> add to `C:\Users\yourUsername\Documents\PowerShell`
+> you need install _ohmyposh_ (https://ohmyposh.dev/)
 
 > [!Note]
 >
 > ## Config for komorebic
 >
-> Filename = komorebi.json
+> Filename = `komorebi.json`
 >
 > **_ this for config komorebi ( you need install komorebi first https://github.com/LGUG2Z/komorebi) _**
+> add this to `C:\Users\yourUsername\`
 >
-> Filename = whkdrc
+> Filename = `whkdrc`
 >
-> **_this config for whk for komorebi_**
+> **_this config for whk for komorebi_**, add this to `C:\Users\yourUsername\.config`
