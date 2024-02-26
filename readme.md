@@ -16,3 +16,15 @@ warning you need vim ( plugin ) for vim moving , btw install the plugin first
 `Images plugins`
 
 ![plugin screenshot](https://github.com/radiaku/vscodepublicconfig/blob/main/ss/plugins.png?raw=true)
+
+Plus:
+`Config for my terminal powershell`
+Microsoft.PowerShell_profile.ps1
+
+`Config for komorebic`
+komorebi.json
+**_ this for config komorebi ( you need install komorebi first https://github.com/LGUG2Z/komorebi) _**
+
+whkdrc
+
+**_this config for whk for komorebi_**
