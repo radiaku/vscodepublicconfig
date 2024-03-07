@@ -1,7 +1,14 @@
 # 1.0.8030.24604
 Set-Alias -Name nvimq -Value "C:\neovimqt\bin\nvim-qt.exe"
 
+# touch
+function touch ($command) {
+    New-Item -Path $command -ItemType File | out-null && Write-Host Created $command
+}
 
+function rm ($command) {
+    Remove-Item $command -Recurse && Write-Host Removed $command
+}
 
 ## $Env:PATH management
 Function Add-DirectoryToPath {
@@ -102,7 +109,9 @@ Function Add-DirectoryToPath {
 
 # Import-Module oh-my-posh
 . oh-my-posh init pwsh --config "~/.poshthemes/oh-my-posh.json" | Invoke-Expression
+# . oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/agnoster.omp.json" | Invoke-Expression
 
+Import-Module Terminal-Icons
 
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
