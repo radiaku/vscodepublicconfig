@@ -1,149 +1,287 @@
-{
-  "editor.formatOnSave": true,
-  "editor.suggest.insertMode": "replace",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
-  "editor.linkedEditing": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "launch": {},
-  "[json]": {},
-  "workbench.statusBar.visible": true,
-  "editor.minimap.enabled": false,
-  "breadcrumbs.enabled": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "update.showReleaseNotes": false,
-  "zenMode.hideLineNumbers": false,
-  "editor.lineNumbers": "relative",
-  "vim.useSystemClipboard": true,
-  "vim.easymotion": true,
-  "vim.leader": "<Space>",
-  "vim.hlsearch": true,
-  "editor.renderLineHighlight": "line",
-  "editor.smoothScrolling": false,
-  "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#463e3e"
+[
+  {
+    "key": "ctrl+]",
+    "command": "workbench.action.nextSideBarView",
+    // "when": "sideBarFocus"
   },
-  "vim.highlightedyank.enable": true,
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["Y"],
-      "after": ["y", "$"]
-    },
-    // NAVIGATION
-    // switch b/w buffers
-    {
-      "before": ["<S-h>"],
-      "commands": [":bprevious"]
-    },
-    {
-      "before": ["<S-l>"],
-      "commands": [":bnext"]
-    },
-    {
-      "before": ["leader", "v"],
-      "commands": [":vsplit"]
-    },
-    {
-      "before": ["leader", "s"],
-      "commands": [":split"]
-    },
-    // panes
-    {
-      "before": ["leader", "h"],
-      "commands": ["workbench.action.focusLeftGroup"]
-    },
-    {
-      "before": ["leader", "j"],
-      "commands": ["workbench.action.focusBelowGroup"]
-    },
-    {
-      "before": ["leader", "k"],
-      "commands": ["workbench.action.focusAboveGroup"]
-    },
-    {
-      "before": ["leader", "l"],
-      "commands": ["workbench.action.focusRightGroup"]
-    },
-    // NICE TO HAVE
-    {
-      "before": ["leader", "w"],
-      "commands": [":w!"]
-    },
-    {
-      "before": ["leader", "q"],
-      "commands": [":q!"]
-    },
-    {
-      "before": ["leader", "x"],
-      "commands": [":x!"]
-    },
-    {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"]
-    },
-    {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"]
-    },
-    {
-      "before": ["<leader>", "c", "a"],
-      "commands": ["editor.action.quickFix"]
-    },
-    {
-      "before": ["leader", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      "before": ["leader", "p"],
-      "commands": ["editor.action.formatDocument"]
-    },
-    {
-      "before": ["g", "h"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
-    {
-      "before": ["leader", "c"],
-      "commands": ["editor.action.commentLine"]
-    }
-  ],
-  "vim.visualModeKeyBindings": [
-    // Stay in visual mode while indenting
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
-    },
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
-    },
-    // Move selected lines while staying in visual mode
-    {
-      "before": ["J"],
-      "commands": ["editor.action.moveLinesDownAction"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["editor.action.moveLinesUpAction"]
-    },
-    // toggle comment selection
-    {
-      "before": ["leader", "c"],
-      "commands": ["editor.action.commentLine"]
-    }
-  ],
-  "[python]": {
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.autopep8"
+  {
+    "key": "ctrl+[",
+    "command": "workbench.action.previousSideBarView",
+    // "when": "sideBarFocus"
   },
-  "workbench.activityBar.location": "side",
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "editor.tabSize": 2,
-  "explorer.confirmDelete": false,
-  // you need change to your php
-  "php.validate.executablePath": "C:/laragon/bin/php/php-8.1.10-Win32-vs16-x64/php.exe",
-  "security.workspace.trust.untrustedFiles": "open",
-  "editor.accessibilitySupport": "off",
-  "[xslt]": {
-    "editor.semanticHighlighting.enabled": true
-  }
-}
+  {
+    "key": "ctrl+p", // whatever you want here
+    "command": "selectPrevCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "up", // default removed
+    "command": "-selectPrevCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+n", // whatever you want here
+    "command": "selectNextCodeAction", // for v1.71
+    "when": "codeActionMenuVisible && editorTextFocus"
+  },
+  {
+    "key": "down", // default removed
+    "command": "-selectNextCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.navigateLeft",
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.navigateRight",
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.navigateUp",
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.navigateDown",
+  },
+  {
+    "command": "projectManager.listGitProjects#sideBarGit",
+    "key": "cmd+o"
+  },
+  {
+    "command": "expand_region",
+    "key": "ctrl+=",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "undo_expand_region",
+    "key": "ctrl+-",
+    "when": "editorTextFocus && editorHasSelection"
+  },
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
+  },
+  // {
+  //   "command": "workbench.action.toggleSidebarVisibility",
+  //   "key": "space+e+e"
+  // },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus || filesExplorerFocus "
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "filesExplorerFocus "
+  },
+  {
+    "command": "explorer.newFile",
+    "key": "a",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.copy",
+    "key": "c",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "filesExplorer.paste",
+    "key": "p",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "explorer.newFolder",
+    "key": "shift+n",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "-workbench.action.files.save",
+    "key": "cmd+s"
+  },
+  {
+    "command": "saveAll",
+    "key": "cmd+s"
+  },
+  {
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "key": "cmd+d",
+    "when": "editorFocus"
+  },
+  {
+    "command": "-extension.vim_cmd+d",
+    "key": "cmd+d",
+    "when": "editorTextFocus && vim.active && vim.use<D-d> && !inDebugRepl"
+  },
+  {
+    "command": "workbench.action.splitEditor",
+    "key": "cmd+d"
+  },
+  {
+    "command": "-workbench.action.splitEditor",
+    "key": "cmd+\\"
+  },
+  {
+    "command": "turboConsoleLog.displayLogMessage",
+    "key": "cmd+i"
+  },
+  {
+    "command": "-turboConsoleLog.displayLogMessage",
+    "key": "ctrl+alt+l"
+  },
+  {
+    "command": "-undo",
+    "key": "cmd+z"
+  },
+  // {
+  //   "command": "-interactiveEditor.unstash",
+  //   "key": "cmd+z",
+  //   "when": "interactiveEditorHasStashedSession && !editorReadonly"
+  // },
+  // {
+  //   "command": "workbench.action.toggleZenMode",
+  //   "key": "cmd+z"
+  // },
+  // {
+  //   "command": "-workbench.action.toggleZenMode",
+  //   "key": "cmd+k z"
+  // },
+  {
+    "command": "-editor.action.selectAll",
+    "key": "cmd+a"
+  },
+  {
+    "command": "editor.action.selectAll",
+    "key": "cmd+a"
+  },
+  {
+    "command": "workbench.action.terminal.toggleTerminal",
+    "key": "ctrl+\\",
+    "when": "terminal.active"
+  },
+  {
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "key": "ctrl+`",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.duplicateSelection"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal",
+    "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  // NAVIGATION
+  {
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // FILE TREE
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "r",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+n",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.files.newUntitledFile",
+    // "when": "editorFocus && !codeActionMenuVisible && !editorHasCompletionItemProvider"
+    "when": "editorFocus && !inputFocus"
+  },
+  {
+    "command": "deleteFile",
+    "key": "d",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  // EXTRA
+  {
+    "key": "ctrl+shift+5",
+    "command": "editor.emmet.action.matchTag"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "extension.vim_ctrl+p",
+    "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode' && codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-extension.vim_ctrl+p",
+    "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenNavigatePrevious",
+    "when": "inQuickOpen"
+  },
+  // {
+  //   "key": "ctrl+z",
+  //   "command": "workbench.action.toggleZenMode"
+  // }
+]
