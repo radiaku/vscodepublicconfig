@@ -108,15 +108,38 @@ Function Add-DirectoryToPath {
 
 
 # Import-Module oh-my-posh
-. oh-my-posh init pwsh --config "~/.poshthemes/oh-my-posh.json" | Invoke-Expression
-# . oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/agnoster.omp.json" | Invoke-Expression
+# . oh-my-posh init pwsh --config "~/.poshthemes/oh-my-posh.json" | Invoke-Expression
+# . oh-my-posh init pwsh --config "C:\Users\DELL\AppData\Local\Programs\oh-my-posh\themes\kali.omp.json" | Invoke-Expression
+. oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 
 Import-Module Terminal-Icons
 
+Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+# Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+# Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function MenuComplete
+# Set-PSReadLineKeyHandler -Key Ctrl+P -Function HistorySearchBackward
+# Set-PSReadLineKeyHandler -Key Ctrl+N -Function HistorySearchForward
 
+# Set-PSReadlineKeyHandler "Ctrl+Delete" KillWord
+# Set-PSReadlineKeyHandler "Ctrl+Backspace" BackwardKillWord
+# Set-PSReadlineKeyHandler "Ctrl+LeftArrow" BackwardWord
+# Set-PSReadlineKeyHandler "Ctrl+RightArrow" NextWord
+Set-PSReadlineKeyHandler "Tab" MenuComplete
+
+# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+# Set-PSReadLineOption -EditMode Vi
 #adding function whereis
+Set-PSReadLineKeyHandler -Chord Ctrl+n -Function CancelLine
+
+function Get-ChildItemUnix {
+    Get-ChildItem $Args[0] |
+        Format-Table Mode, @{N='Owner';E={(Get-Acl $_.FullName).Owner}}, Length, LastWriteTime, @{N='Name';E={if($_.Target) {$_.Name+' -> '+$_.Target} else {$_.Name}}}
+}
+New-Alias ll Get-ChildItemUnix
 
 function whereis ($command) {
     Get-Command -Name $command -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue

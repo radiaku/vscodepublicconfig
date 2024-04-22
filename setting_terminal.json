@@ -2,7 +2,7 @@
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": [],
-    //"alwaysShowTabs": true,
+    "alwaysShowTabs": true,
     "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
@@ -11,21 +11,17 @@
     "initialCols": 150,
     "initialPosition": ",",
     "initialRows": 38,
-    "launchMode": "focus",
-    "newTabMenu": 
-    [
+    "launchMode": "default",
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
-        "defaults": 
-        {
+    "profiles": {
+        "defaults": {
             "colorScheme": "cyberdream",
             "cursorShape": "filledBox",
-            "font": 
-            {
+            "font": {
                 "face": "CaskaydiaCove Nerd Font Mono",
                 "size": 12.0
             },
@@ -33,11 +29,11 @@
             "intenseTextStyle": "bright",
             "opacity": 90,
             "padding": "10",
+            "startingDirectory": ".",
             "scrollbarState": "hidden",
             "useAcrylic": true
         },
-        "list": 
-        [
+        "list": [
             {
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe --NoLogo",
                 "elevate": false,
@@ -64,17 +60,10 @@
                 "hidden": false,
                 "name": "kali-linux",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{e4a12686-4614-5d98-83af-53a2c66f729c}",
-                "hidden": false,
-                "name": "Julia",
-                "source": "JuliaComputingInc.Julia_b0ra4bp6jsp6c"
             }
         ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
