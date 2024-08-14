@@ -1,6 +1,9 @@
 # 1.0.8030.24604
 Set-Alias -Name nvimq -Value "C:\neovimqt\bin\nvim-qt.exe"
 
+
+function wtd { wt -d . }
+
 # touch
 function touch ($command) {
     New-Item -Path $command -ItemType File | out-null && Write-Host Created $command
@@ -61,13 +64,8 @@ Function Add-DirectoryToPath {
 
     PROCESS {
 
-        ## Using [IO.Directory]::Exists() instead of Test-Path for performance purposes
-
-        ##$path = $path -replace "^(.*);+$", "`$1"
-        ##$path = $path -replace "^(.*)\\$", "`$1"
         if ([IO.Directory]::Exists($path) -or $force.IsPresent) {
 
-            #$path = (Resolve-Path -Path $path).Path
             $path = $path.Trim()
 
             $newPath = $path.ToLowerInvariant()
@@ -110,12 +108,49 @@ Function Add-DirectoryToPath {
 # Import-Module oh-my-posh
 # . oh-my-posh init pwsh --config "~/.poshthemes/oh-my-posh.json" | Invoke-Expression
 # . oh-my-posh init pwsh --config "C:\Users\DELL\AppData\Local\Programs\oh-my-posh\themes\kali.omp.json" | Invoke-Expression
-. oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
+. oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\amro.omp.json" | Invoke-Expression
 
 Import-Module Terminal-Icons
 
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -BellStyle None
+
+# Set-PSReadLineOption -PredictionViewStyle ListView
+# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+# Set-PSReadlineKeyHandler -Key Tab -Function Complete
+ 
+# Set the prediction view style to List by default
+# Set-PSReadLineOption -PredictionViewStyle List
+
+# function Show-HistoryList {
+#     Set-PSReadLineOption -PredictionViewStyle ListView
+#     Set-PSReadLineOption -PredictionSource History
+#     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+# }
+#
+# function Navigate-HistoryBackwards {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchBackward()
+# }
+#
+# function Navigate-HistoryForwards {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
+# }
+#
+# Set-PSReadLineKeyHandler -Key UpArrow -ScriptBlock {
+#     Set-PSReadLineOption -PredictionViewStyle ListView
+#     Navigate-HistoryBackwards
+# }
+#
+# Set-PSReadLineKeyHandler -Key DownArrow -ScriptBlock {
+#     Set-PSReadLineOption -PredictionViewStyle ListView
+#     Navigate-HistoryForwards
+# }
+
+# Set-PSReadLineOption -EditMode Vi
+
+
+#
 # Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 # Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function MenuComplete
 # Set-PSReadLineKeyHandler -Key Ctrl+P -Function HistorySearchBackward
@@ -125,23 +160,37 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 # Set-PSReadlineKeyHandler "Ctrl+Backspace" BackwardKillWord
 # Set-PSReadlineKeyHandler "Ctrl+LeftArrow" BackwardWord
 # Set-PSReadlineKeyHandler "Ctrl+RightArrow" NextWord
-Set-PSReadlineKeyHandler "Tab" MenuComplete
+# Set-PSReadlineKeyHandler "Tab" MenuComplete
 
 # Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+# Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+# Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Set-PSReadLineOption -EditMode Vi
 #adding function whereis
-Set-PSReadLineKeyHandler -Chord Ctrl+n -Function CancelLine
+# Set-PSReadLineKeyHandler -Chord Ctrl+n -Function CancelLine
 
-function Get-ChildItemUnix {
+function ll {
     Get-ChildItem $Args[0] |
         Format-Table Mode, @{N='Owner';E={(Get-Acl $_.FullName).Owner}}, Length, LastWriteTime, @{N='Name';E={if($_.Target) {$_.Name+' -> '+$_.Target} else {$_.Name}}}
 }
-New-Alias ll Get-ChildItemUnix
 
 function whereis ($command) {
     Get-Command -Name $command -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
+
+function reloadprofile {
+    @(
+        $Profile.AllUsersAllHosts,
+        $Profile.AllUsersCurrentHost,
+        $Profile.CurrentUserAllHosts,
+        $Profile.CurrentUserCurrentHost
+    ) | % {
+        if(Test-Path $_){
+            Write-Verbose "Running $_"
+            . $_
+        }
+    }
+}
+
 
