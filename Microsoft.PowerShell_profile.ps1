@@ -2,6 +2,8 @@
 Set-Alias -Name nvimq -Value "C:\neovimqt\bin\nvim-qt.exe"
 
 
+# %APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
 function wtd { wt -d . }
 
 # touch
@@ -104,71 +106,14 @@ Function Add-DirectoryToPath {
 
 }
 
-
-# Import-Module oh-my-posh
-# . oh-my-posh init pwsh --config "~/.poshthemes/oh-my-posh.json" | Invoke-Expression
-# . oh-my-posh init pwsh --config "C:\Users\DELL\AppData\Local\Programs\oh-my-posh\themes\kali.omp.json" | Invoke-Expression
 . oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\amro.omp.json" | Invoke-Expression
 
 Import-Module Terminal-Icons
 
 Set-PSReadLineOption -BellStyle None
-
-# Set-PSReadLineOption -PredictionViewStyle ListView
-# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd:$true
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-# Set-PSReadlineKeyHandler -Key Tab -Function Complete
- 
-# Set the prediction view style to List by default
-# Set-PSReadLineOption -PredictionViewStyle List
-
-# function Show-HistoryList {
-#     Set-PSReadLineOption -PredictionViewStyle ListView
-#     Set-PSReadLineOption -PredictionSource History
-#     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
-# }
-#
-# function Navigate-HistoryBackwards {
-#     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchBackward()
-# }
-#
-# function Navigate-HistoryForwards {
-#     [Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchForward()
-# }
-#
-# Set-PSReadLineKeyHandler -Key UpArrow -ScriptBlock {
-#     Set-PSReadLineOption -PredictionViewStyle ListView
-#     Navigate-HistoryBackwards
-# }
-#
-# Set-PSReadLineKeyHandler -Key DownArrow -ScriptBlock {
-#     Set-PSReadLineOption -PredictionViewStyle ListView
-#     Navigate-HistoryForwards
-# }
-
-# Set-PSReadLineOption -EditMode Vi
-
-
-#
-# Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
-# Set-PSReadLineKeyHandler -Key "Ctrl+n" -Function MenuComplete
-# Set-PSReadLineKeyHandler -Key Ctrl+P -Function HistorySearchBackward
-# Set-PSReadLineKeyHandler -Key Ctrl+N -Function HistorySearchForward
-
-# Set-PSReadlineKeyHandler "Ctrl+Delete" KillWord
-# Set-PSReadlineKeyHandler "Ctrl+Backspace" BackwardKillWord
-# Set-PSReadlineKeyHandler "Ctrl+LeftArrow" BackwardWord
-# Set-PSReadlineKeyHandler "Ctrl+RightArrow" NextWord
-# Set-PSReadlineKeyHandler "Tab" MenuComplete
-
-# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
-# Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-# Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-# Set-PSReadLineOption -EditMode Vi
-#adding function whereis
-# Set-PSReadLineKeyHandler -Chord Ctrl+n -Function CancelLine
 
 function ll {
     Get-ChildItem $Args[0] |
@@ -200,12 +145,8 @@ function cas {
 }
 
 function ias {
-  # Entering Alternate Screen
+  # Clear Alternate Screen
   # https://github.com/microsoft/terminal/issues/17739
   [System.Console]::Write("`e[?1049h")
 }
-
-
-
-
 
