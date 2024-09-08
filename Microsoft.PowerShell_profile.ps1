@@ -12,7 +12,7 @@ function touch ($command) {
 }
 
 function rm ($command) {
-    Remove-Item $command -Recurse && Write-Host Removed $command
+    Remove-Item $command -Recurse -Force && Write-Host Removed $command
 }
 
 ## $Env:PATH management
@@ -106,7 +106,7 @@ Function Add-DirectoryToPath {
 
 }
 
-. oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\amro.omp.json" | Invoke-Expression
+. oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\kali.omp.json" | Invoke-Expression
 
 Import-Module Terminal-Icons
 
