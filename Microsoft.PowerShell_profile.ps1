@@ -145,7 +145,7 @@ function cas {
 }
 
 function ias {
-  # Clear Alternate Screen
+  # Entering Alternate Screen
   # https://github.com/microsoft/terminal/issues/17739
   [System.Console]::Write("`e[?1049h")
 }
