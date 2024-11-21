@@ -142,11 +142,13 @@ function cas {
   # Clear Alternate Screen
   # https://github.com/microsoft/terminal/issues/17739
   [System.Console]::Write("`e[?1049l")
+  Clear-Host  # Clears the console
 }
 
 function ias {
   # Entering Alternate Screen
   # https://github.com/microsoft/terminal/issues/17739
   [System.Console]::Write("`e[?1049h")
+  Clear-Host  # Clears the console
 }
 
