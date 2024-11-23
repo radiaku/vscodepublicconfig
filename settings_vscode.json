@@ -9,7 +9,7 @@
   "workbench.statusBar.visible": true,
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-great-icons",
   "update.showReleaseNotes": false,
   "zenMode.hideLineNumbers": false,
   "editor.lineNumbers": "relative",
@@ -63,10 +63,21 @@
     {
       "before": [
         "leader",
-        "s"
+        "s",
+        "a"
       ],
       "commands": [
-        ":split"
+        ":wa"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "e"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
       ]
     },
     // panes
@@ -287,6 +298,26 @@
         "editor.action.moveLinesUpAction"
       ]
     },
+    {
+      "before": [
+        "leader",
+        "r",
+        "n"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "n",
+        "h"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
     // toggle comment selection
     {
       "before": [
@@ -316,5 +347,17 @@
   "go.toolsManagement.autoUpdate": true,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
-  }
+  },
+  "workbench.colorTheme": "Sonokai Andromeda",
+  // "castleEngine.pascalLanguageServer.LAZARUSDIR": "C:\\lazarus",
+  // "castleEngine.pascalLanguageServer.PP": "C:\\lazarus\\fpc\\3.2.2\\bin\\x86_64-win64",
+  // "castleEngine.pascalLanguageServer.FPCDIR": "C:\\lazarus\\fpc\\3.2.2\\source",
+  "editor.fontFamily": "UbuntuMono Nerd Font, Consolas, 'Courier New', monospace",
+  // "castleEngine.enginePath": "C:\\Castle Game Engine",
+  // "castleEngine.pascalLanguageServer.FPCTARGET": "win64",
+  // "castleEngine.pascalLanguageServer.FPCTARGETCPU": "x86_64",
+  // "castleEngine.engineDeveloperMode": true,
+  "omnipascal.defaultDevelopmentEnvironment": "FreePascal",
+  "editor.fontSize": 15,
+  "mql_tools.Metaeditor.Metaeditor5Dir": "\"C:\\Program Files\\MetaTrader 5\\MetaEditor64.exe\""
 }
