@@ -1,4 +1,4 @@
-> [!NOTE]
+> [!NOTE] My config For terminal windows and vscode
 >
 > ## Config for My vscode
 >
