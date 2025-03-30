@@ -152,3 +152,7 @@ function ias {
   Clear-Host  # Clears the console
 }
 
+function conda_active {
+    & 'C:\ProgramData\miniconda3\shell\condabin\conda-hook.ps1'
+    conda activate 'C:\ProgramData\miniconda3'
+}
