@@ -156,3 +156,10 @@ function conda_active {
     & 'C:\ProgramData\miniconda3\shell\condabin\conda-hook.ps1'
     conda activate 'C:\ProgramData\miniconda3'
 }
+
+$global:originalPrompt = $function:prompt
+
+function DeactivateVenvPrompt {
+    $function:prompt = $global:originalPrompt
+}
+$env:CONDA_CHANGEPS1 = "false"
