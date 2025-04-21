@@ -163,3 +163,36 @@ function DeactivateVenvPrompt {
     $function:prompt = $global:originalPrompt
 }
 $env:CONDA_CHANGEPS1 = "false"
+
+function fzf-cd {
+  $fdArgs = @(
+    ".", "$HOME\IdeaProjects", "$HOME\goproject",  # Add your Go project directory here
+    "--type", "directory",
+    "--max-depth", "1",
+    "--exclude", ".git",
+    "--exclude", "node_modules"
+  )
+
+  $fzfArgs = @(
+    "--preview", "dir {}"
+    "--bind=ctrl-space:toggle-preview",
+    "--exit-0"
+  )
+
+  $fdOutput = & fd @fdArgs 2>$null
+
+  if (-not $fdOutput) {
+    Write-Host "No directories found." -ForegroundColor Yellow
+    return
+  }
+
+  $target = $fdOutput | fzf @fzfArgs
+
+  if (-not $target) { return }
+
+  if (Test-Path $target -PathType Leaf) {
+    $target = Split-Path $target -Parent
+  }
+
+  Set-Location $target
+}
