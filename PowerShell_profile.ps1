@@ -196,3 +196,8 @@ function fzf-cd {
 
   Set-Location $target
 }
+
+# Install-Module -Name PSFzfHistory
+
+Set-FzfHistoryKeybind -Chord Ctrl+r
+
