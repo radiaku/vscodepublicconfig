@@ -176,7 +176,8 @@ function fzf-cd {
   $fzfArgs = @(
     "--preview", "dir {}"
     "--bind=ctrl-space:toggle-preview",
-    "--exit-0"
+    "--exit-0",
+    "--exact"   # Add this for exact matching
   )
 
   $fdOutput = & fd @fdArgs 2>$null
