@@ -6,9 +6,7 @@
       "segments": [
         {
           "foreground": "lightBlue",
-          "foreground_templates": [
-            "{{ if .Root }}lightRed{{ end }}"
-          ],
+          "foreground_templates": ["{{ if .Root }}lightRed{{ end }}"],
           "properties": {
             "display_host": true
           },
@@ -56,6 +54,18 @@
       "alignment": "right",
       "segments": [
         {
+          "background": "#234d70",
+          "foreground": "#d6deeb",
+          "leading_diamond": "\ue0b2",
+          "properties": {
+            "template": " \uf64f {{ .CurrentDate | date .Format }} ",
+            "time_format": "15:04:05"
+          },
+          "style": "diamond",
+          "trailing_diamond": "\ue0b4",
+          "type": "time"
+        },
+        {
           "foreground": "white",
           "properties": {
             "always_enabled": true,
@@ -67,9 +77,7 @@
         },
         {
           "foreground": "green",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}red{{ end }}"
-          ],
+          "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"],
           "properties": {
             "always_enabled": true
           },
